@@ -25,8 +25,4 @@ public class ManageFaculty extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), ViewFaculty.class));
 
     }
-
-    public void removeFaculty(View view){
-
-    }
 }

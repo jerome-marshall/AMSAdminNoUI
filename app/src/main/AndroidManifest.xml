@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ViewFaculty.ManageTimetable"></activity>
         <activity android:name=".ViewFaculty.FacultyDetailsActivity" />
-        <activity android:name=".RemoveFaculty" />
+        <activity android:name=".ViewFaculty.RemoveFaculty" />
         <activity android:name=".ViewFaculty.ViewFaculty" />
         <activity android:name=".AddFaculty" />
         <activity android:name=".ManageFaculty" />

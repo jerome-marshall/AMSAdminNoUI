@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -86,6 +87,7 @@ public class AddFaculty extends AppCompatActivity {
                             reference = firestore.collection("faculty").document(uid);
 
                             reference.set(faculty);
+                            initiateTimeTable(uid);
                             Toast.makeText(AddFaculty.this, uid, Toast.LENGTH_SHORT).show();
                         }
                         else {
@@ -97,5 +99,21 @@ public class AddFaculty extends AppCompatActivity {
 
 
 
+    }
+
+    public  void initiateTimeTable(String userID){
+
+        final Map<String,Object> timeTable = new HashMap<>();
+        timeTable.put("dept", "Null");
+        timeTable.put("sub", "Null");
+
+        for(int i = 1; i<=7; i++){
+            String period = String.valueOf(i);
+            reference = firestore.collection("faculty")
+                    .document(userID)
+                    .collection("timetable")
+                    .document(period);
+            reference.set(timeTable);
+        }
     }
 }
